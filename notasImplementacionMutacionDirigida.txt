@@ -1,0 +1,39 @@
+
+
+
+inicializar la tabla CTable
+Simulation::initializeCTable()
+
+Aquí se debe recorrer la poblacion de tamaño P y obtener el superindividuo
+
+
+actualizar la tabla CTable
+Simulation::updateCTable()
+
+Aquí se deben considerar los nuevos individuos agregados al archivo externo y 
+obtener el superindividuo
+
+
+Objeto CTable
+
+constructor con tamaño del individuo y tamaño de ventana para mutación
+CTable(int individualSize, int window)
+
+~CTable()
+
+agrega el superindividuo a CTable
+void addSuperIndividual(Individual * sIndividual, QList<double> indexAList)
+
+
+
+
+
+en la clase Mutation
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+# datos de promedio de aps descubiertos y sus correspondientes intervalos de 
+# confianza 95% por dispositivos de referencia
+#
+# dispositivos de referencia
+#
+# Debian 7.633333 6.810066 8.456600
+# Windows 10.63333 9.764601 11.50206
+# Meego 10.7 9.607376 11.79262
+# iOS 16.4 14.96683 17.83317
+# Android 18.83333 17.60040 20.06627
+#
+#
+#
+
+# comandos de gnuplot para graficar un histograma con los intervalos de 
+# confianza
+
+clear
+reset
+set terminal png
+# Make the x axis labels easier to read.
+set xtics rotate out
+# Select histogram data
+set style data histogram
+# Give the bars a plain fill pattern, and draw a solid line around them.
+set style fill solid border
+# We need to set lw in order for error bars to actually appear.
+set style histogram errorbars linewidth 1
+# Make the bars semi-transparent so that the errorbars are easier to see.
+set style fill solid 0.3
+set bars front
+set title "Intervalos de confianza 95% para cadenas"
+set xrange [-1:10]
+set ylabel "Numero de APs"
+set yrange [1:100]
+set y2label "Latencia * 10 (ms)"
+#plot './intervalos' using 2:3:4:xticlabel(1)
+set grid
+#plot './intervalos' using 2:3:4:xticlabel(1), "./intervalos" using 5:6:7:xticlabel(1)
+plot './dataToPlot.txt' using 2:3:4:xticlabel(1) title "APs", "./dataToPlot.txt" using ($5*0.1):($6*0.1):($7*0.1):xticlabel(1) title "Latencia"
