@@ -1400,6 +1400,11 @@ double Individual::getAPsByAllChannels()
     double min = 0;
     double max = 0;
 
+
+    // limpiar la lista de indices de descubierta por canal
+    of1IndexList.clear();
+
+
     // iterar por cada canal
     for (int c=0; c<individualSize; c++)
     {
@@ -1456,10 +1461,16 @@ double Individual::getAPsByAllChannels()
         // si max es cero no se suman los aps encontrados con max
         if (max ==0)
         {
+            // agregar el indice de descubierta del canal
+            of1IndexList.append(APmin/min);
+
             discovery = discovery + APmin/min;
         }
         else
         {
+            // agregar el indice de descubierta del canal
+            of1IndexList.append(APmin/min + std::abs(APmax-APmin)/max);
+
             discovery = discovery + APmin/min + std::abs(APmax-APmin)/max;
         }
 
@@ -1581,4 +1592,12 @@ double Individual::getSimpleAPsum()
         APs = APs + parametersList.at((i*4)+3);
     }
     return APs;
+}
+
+
+
+
+double Individual::getDiscoveryIndexForChannel(int channelIndex)
+{
+    return of1IndexList.at(channelIndex);
 }

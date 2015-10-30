@@ -8,18 +8,20 @@ Gen::Gen()
     maxChannelTime = 0;
     minChannelTime = 0;
     APs = 0;
+    discoveryIndex = 0;
 }
 
 Gen::~Gen()
 {
 }
 
-Gen::Gen(int ch, int min, int max, int aps)
+Gen::Gen(int ch, int min, int max, int aps, double dIndex)
 {
     channel = ch;
     maxChannelTime = min;
     minChannelTime = max;
     APs = aps;
+    discoveryIndex = dIndex;
 }
 
 int Gen::getLatency()
@@ -145,4 +147,15 @@ double Gen::getFONC()
         }
     }
     return fonc;
+}
+
+double Gen::getDiscoveryIndex()
+{
+    return discoveryIndex;
+}
+
+
+void Gen::setDiscoveryIndex(double dIndex)
+{
+    discoveryIndex = dIndex;
 }

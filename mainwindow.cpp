@@ -1155,6 +1155,12 @@ void MainWindow::reportIndividualOrderedByApInGenes(QList<Individual*> list, QSt
 
             } // fin de parametros de gen
 
+            // asignar el valor del indice de descubrimiento del canal al gen actual
+            double discoveryIndexForChannel = ind->getDiscoveryIndexForChannel(i);
+            gen->setDiscoveryIndex(discoveryIndexForChannel);
+
+
+
             // insertar el gen en la lista
             genList.append(gen);
 
@@ -1222,11 +1228,23 @@ void MainWindow::reportIndividualOrderedByApInGenes(QList<Individual*> list, QSt
                     str.append(",");
                 }
 
+                /*
                 // obtener el valor del indice FONC asociado al gen y agregarlo a la cadena del individuo
                 double genFonc = reorderListByAP.at(i)->getFONC();
                 str.append(QString::number(genFonc));
                 str.append(",");
                 sumFonc = sumFonc + genFonc;
+                */
+
+                // ------------- nueva modificacion: --------------------------
+                // leer el valor del indice de descubierta del gen y agreagarlo
+                double discoveryIndex = reorderListByAP.at(i)->getDiscoveryIndex();
+                str.append(QString::number(discoveryIndex));
+                str.append(",");
+                sumFonc = sumFonc + discoveryIndex;
+
+                // ------------------------------------------------------------
+
             }
 
         }

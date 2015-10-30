@@ -1214,7 +1214,7 @@ void Mutation::originalMutation(Individual * father, double std, double stdMin, 
         offspring->setParameter(i, newParameterValue);
     }
 
-    offspring->getAverageOnFullScanning();
+    //offspring->getAverageOnFullScanning();
 
     // se muto el offspring ahora limpiar el diccionario de canales usados
     // asignar el diccionario de canales utilizados en la mutacion en falso
@@ -1699,7 +1699,7 @@ void Mutation::directedMutation(CTable * ct, Individual * father, double stdMin,
 
     // *******************************************************
 
-    offspring->getAverageOnFullScanning();
+    //offspring->getAverageOnFullScanning();
 
     offspring->calculateDiscoveryValue();
     offspring->calculateLatencyValue();

@@ -37,6 +37,14 @@ private:
     QList<double> parametersList;
 
     /**
+     * @brief Lista de indices de la funcion objetivo 1 para cada canal del individuo.
+     *
+     * Se almacena el valor de APmin/min + APmax/max para cada canal.
+     */
+    QList<double> of1IndexList;
+
+
+    /**
      * @brief Valor de desempeno del individuo
      */
     double performanceValue;
@@ -416,6 +424,14 @@ public:
      * @return suma simple de los APs encontrados en los canales del individuo
      */
     double getSimpleAPsum();
+
+    /**
+     * @brief Retorna el indice de descubrimiento APmin/min + APmax/max de un canal dado
+     * @param channelIndex indice del canal para obtener el indice de descubrimiento
+     * @return indice de descubrimiento APmin/min + APmax/max de un canal dado
+     */
+    double getDiscoveryIndexForChannel(int channelIndex);
+
 };
 
 #endif // INDIVIDUAL_H

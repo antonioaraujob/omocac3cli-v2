@@ -13,6 +13,8 @@ private:
     double minChannelTime;
     double APs;
 
+    double discoveryIndex;
+
 public:
     /**
      * @brief Constructor
@@ -31,7 +33,7 @@ public:
      * @param max maxChannelTime
      * @param aps APs
      */
-    Gen(int ch, int min, int max, int aps);
+    Gen(int ch, int min, int max, int aps, double dIndex);
 
     /**
      * @brief retorna la latencia del gen (minCHannelTime+maxChannelTime)
@@ -76,7 +78,18 @@ public:
      */
     double getFONC();
 
+    /**
+     * @brief Retorna el indice de descubrimiento APmin/min+APmax/max del gen
+     * @return indice de descubrimiento APmin/min+APmax/max del gen
+     */
+    double getDiscoveryIndex();
 
+
+    /**
+     * @brief Asigna el indice de descubrimiento del gen
+     * @param dIndex valor del indice de descubrimiento
+     */
+    void setDiscoveryIndex(double dIndex);
 };
 
 #endif // GEN_H
