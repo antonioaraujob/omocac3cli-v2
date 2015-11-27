@@ -2555,7 +2555,8 @@ void MainWindow::generateMutatedResultsTable()
         }
         else
         {
-            script = "/processResultsWithoutArrowMutatedSize11-v2.sh ";
+            //script = "/processResultsWithoutArrowMutatedSize11-v2.sh ";
+            script = "/processResultsWithoutArrowMutatedSize11-v4.sh ";
         }
 
         // copiar el archivo processResultsWithoutArrowMutatedSize11.sh al directorio de resultados

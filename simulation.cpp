@@ -142,7 +142,10 @@ void Simulation::initializePopulation()
         individuo = new Individual();
 
         individuo->printIndividual();
-        individuo->getAverageOnFullScanning();
+        //individuo->getAverageOnFullScanning();
+        individuo->calculateDiscoveryValue();
+        individuo->calculateLatencyValue();
+
 
         individuo->printIndividual();
         individuo->getIndividualAsQString();
@@ -496,7 +499,8 @@ void Simulation::initializeCTable()
         // obtener el individuo
         individual = populationList.at(i);
         // calcular el promedio de APi
-        individual->getAverageOnFullScanning();
+        //individual->getAverageOnFullScanning();
+        individual->calculateDiscoveryValue();
 
         // convertir el individuo a lista de genes
         individualConverted = ctable->convertIndividualToCTableGen(individual);
