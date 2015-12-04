@@ -2551,12 +2551,12 @@ void MainWindow::generateMutatedResultsTable()
         QString script;
         if (useSmartIndividual)
         {
-            script = "/processResultsWithoutArrowMutatedSize11-v4.sh ";
+            script = "/processResultsWithoutArrowMutatedSize11-v5.sh ";
         }
         else
         {
             //script = "/processResultsWithoutArrowMutatedSize11-v2.sh ";
-            script = "/processResultsWithoutArrowMutatedSize11-v4.sh ";
+            script = "/processResultsWithoutArrowMutatedSize11-v5.sh ";
         }
 
         // copiar el archivo processResultsWithoutArrowMutatedSize11.sh al directorio de resultados

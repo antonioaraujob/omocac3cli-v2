@@ -409,6 +409,21 @@ public:
     double getAPsByAllChannels();
 
     /**
+     * @brief Retorna el valor de FO1 para el individuo.
+     *
+     * Tambien actualiza el valor de la latencia del individuo:
+     * si no se descubren APs con MinChannelTime no se suma el MaxChannelTime a la latencia
+     *
+     * La formula utilizada para obtener el valor de la FO en el canal i es la siguiente:
+     *
+     * Fo_i = (AP_descubiertos_con_min)/min + (AP_descubiertos_con_max)/max
+     *
+     *
+     * @return valor de FO1
+     */
+    double getAPsAndLatencyOfAllChannels();
+
+    /**
      * @brief Retorna el valor de FO1 de acuerdo a la formula:
      * La formula utilizada para obtener el valor de la FO en el canal i es la siguiente:
      *
