@@ -527,12 +527,66 @@ void Selection::makeTournamentsWithNewRules(Individual * individual, QList<Indiv
             // *******************************************************************************
             */
 
+            // *******************************************************************************
+            // experimento 4.2
+            // ganara aquel que tenga una proporcion mayor de descubierta de acuerdo a:
+            // FO_NC = #APmin/MinCT
+
+            double individualApMin = individual->getApMin();
+            double adversaryApMin = individual->getApMin();
+
+            if ( (individualApMin > adversaryApMin) )
+            {
+                individual->incrementWonMatchesCounter();
+            }
+            else if ( (individualApMin < adversaryApMin) )
+            {
+                adversary->incrementWonMatchesCounter();
+            }
+            else
+            {
+                if (individualApMin == adversaryApMin)
+                {
+                    individual->incrementWonMatchesCounter();
+                    adversary->incrementWonMatchesCounter();
+                }
+            }
+
+            // *******************************************************************************
+
+            // *******************************************************************************
+            // experimento 4.3
+            // ganara aquel que tenga una proporcion mayor de descubierta de acuerdo a:
+            // FO_NC = Suma total de APs
+            /*
+            double individualApMin = individual->getSimpleAPsum();
+            double adversaryApMin = individual->getSimpleAPsum();
+
+            if ( (individualApMin > adversaryApMin) )
+            {
+                individual->incrementWonMatchesCounter();
+            }
+            else if ( (individualApMin < adversaryApMin) )
+            {
+                adversary->incrementWonMatchesCounter();
+            }
+            else
+            {
+                if (individualApMin == adversaryApMin)
+                {
+                    individual->incrementWonMatchesCounter();
+                    adversary->incrementWonMatchesCounter();
+                }
+            }
+            */
+            // *******************************************************************************
+
 
 
             // *******************************************************************************
             // ganará aquel que tenga una proporción mayor de descubierta de acuerdo a:
             // mayor numero de APs siempre que el individuo respete la latencia sugerida
-
+            /*
             double individualAPs = individual->getPerformanceDiscovery();
             double adversaryAPs = adversary->getPerformanceDiscovery();
 
@@ -552,6 +606,7 @@ void Selection::makeTournamentsWithNewRules(Individual * individual, QList<Indiv
                     adversary->incrementWonMatchesCounter();
                 }
             }
+            */
             // *******************************************************************************
 
 

@@ -142,6 +142,15 @@ Individual::Individual()
     // contador de torneos ganados inicializado en 0
     wonMatchesCounter = 0;
 
+    // suma de APs encontrados con MinChannelTime
+    apMin = 0;
+
+    // suma de APs encontrados con MaxChannelTime
+    apMax = 0;
+
+    // suma de APs
+    apSum = 0;
+
     // base de datos sqlite
     QString database("test_18.1.db");
     //QString database("database.db");
@@ -377,6 +386,11 @@ Individual::Individual(bool smart, QString sequence)
     int min = 0;
     int max = 0;
     int apsFound = 0;
+
+
+    apMin = 0;
+    apMax = 0;
+    apSum = 0;
 
     for (int i=0; i<individualSize; i++)
     {
@@ -1532,6 +1546,9 @@ double Individual::getAPsAndLatencyOfAllChannels()
         // valor promedio de APs encontrados con MinChannelTime
         double APmin = minAPsum/30;
 
+        // mantener el registro de aps encontrados con min
+        apMin = apMin + APmin;
+
         // segundo termino APmax/max
         double maxAPsum = 0;
 
@@ -1543,6 +1560,9 @@ double Individual::getAPsAndLatencyOfAllChannels()
 
         // valor promedio de APs encontrados con MaxChannelTime
         double APmax = maxAPsum/30;
+
+        // mantener el registro de aps encontrados con max
+        apMax = apMax + APmax;
 
         double index = 0;
 
@@ -1589,6 +1609,7 @@ double Individual::getAPsAndLatencyOfAllChannels()
 
     } // fin de iteracion por cada canal
 
+    apSum = discovery;
     return discovery;
 
 }
@@ -1710,4 +1731,20 @@ double Individual::getSimpleAPsum()
 double Individual::getDiscoveryIndexForChannel(int channelIndex)
 {
     return of1IndexList.at(channelIndex);
+}
+
+double Individual::getApMin()
+{
+    return apMin;
+}
+
+
+double Individual::getApMax()
+{
+    return apMax;
+}
+
+double Individual::getApSum()
+{
+    return apSum;
 }

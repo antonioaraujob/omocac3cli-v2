@@ -97,6 +97,22 @@ private:
      */
     int nscansForMutation;
 
+    /**
+     * @brief Número de APs encontrados con MinChannelTime para todos los parametros
+     */
+    double apMin;
+
+    /**
+     * @brief Número de APs encontrados con MaxChannelTime para todos los parametros
+     */
+    double apMax;
+
+    /**
+     * @brief Suma de APs encontrados para todos los parametros
+     */
+    double apSum;
+
+
 public:
     /**
      * @brief Constructor de la clase
@@ -446,6 +462,25 @@ public:
      * @return indice de descubrimiento APmin/min + APmax/max de un canal dado
      */
     double getDiscoveryIndexForChannel(int channelIndex);
+
+
+    /**
+     * @brief Retorna el numero de APs encontrados con MinChannelTime para todos los canales
+     * @return numero de APs encontrados con MinChannelTime para todos los canales
+     */
+    double getApMin();
+
+    /**
+     * @brief Retorna el numero de APs encontrados con MaxChannelTime para todos los canales
+     * @return numero de APs encontrados con MaxChannelTime para todos los canales
+     */
+    double getApMax();
+
+    /**
+     * @brief Retorna el numero de APs encontrados en todos los canales
+     * @return numero de APs encontrados en todos los canales
+     */
+    double getApSum();
 
 };
 
